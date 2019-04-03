@@ -213,6 +213,10 @@ def detect_video(yolo, video_path, output_path=""):
 def detect_img(yolo):
     while True:
         img = input('Input image filename:')
+        r_image = yolo.detect_image(image)
+import cv2
+cv2.imwrite("out.jpg", np.asarray(r_image)[..., ::-1])
+r_image.show()
         try:
             image = Image.open(img)
         except:
